@@ -5,14 +5,9 @@
 */
 
 const inputs = [1,2,3,4,5];
-var result=0;
-const arraySum1=(inputs,result)=>{
-  return inputs.reduce(input => result=result+input);
+
+const arraySum = (inputs) => {
+  return inputs.map(input => input**2);
 }
-const arraySum2=(inputs)=>{
-  for(const input of inputs){
-    result.push(input**2)
-  }
-  return result;
-}
-console.log(arraySum1(inputs,result));
+
+console.log(arraySum(inputs));
