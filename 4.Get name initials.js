@@ -3,18 +3,9 @@
    Input:  "George Raymond Richard Martin";
    Output: "GRRM"
 */
-const strInput="George Raymond Richard Martin"
-let result=[];
-let lastAbbr = strInput.lastIndexOf(" ");
-var strLen=strInput.length;
-result.push(strInput[0]);
-const abbrStr = (strInput) => {
-  let j=1;
-  while(j<lastAbbr){
-    j=strInput.indexOf(" ",j);
-    j=j+1;
-    result.push(strInput[j]);
-  }
-    return result.join('');
+
+const input = "George Raymond Richard Martin"
+const abbrStr = (input) => {
+   return input.split(' ').map(unit => unit[0]).join('')
 }
-console.log(abbrStr(strInput))
+console.log(abbrStr(input))

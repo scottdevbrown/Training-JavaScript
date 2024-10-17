@@ -16,9 +16,12 @@ const input = [
   { name: "Nate", age: 67},
   { name: "Jennifer", age: 65}
 ];
-var valuePush=[];
 const valueField = (inputs) => {
-  for(const input of inputs) 
-    valuePush.push(input['age'])
+  let result=[];
+  let valueField = inputs.map(input => input['age']);
+  let minValue = Math.min.apply(null, valueField);
+  let maxValue = Math.max.apply(null, valueField)
+  result.push(minValue, maxValue, maxValue-minValue);
+  return result;
 }
-console.log(valueField[input]);
+console.log(valueField(input));

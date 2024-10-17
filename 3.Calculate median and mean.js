@@ -4,9 +4,10 @@
    Output: { mean: 38.5, median: 39 }
 */
 const input = [12, 46, 32, 64];
-const totalValue=(inputs) => {
+const totalValue = (inputs) => {
   return inputs.reduce((total, value) => total + value);
 }
-var meanValue = totalValue(input)/input.length;
-var medianValue = Math.ceil(meanValue);
+if(input.length == 0) return console.log(0, 0)
+let meanValue = totalValue(input)/input.length;
+let medianValue = Math.ceil(meanValue);
 console.log(meanValue, medianValue);
