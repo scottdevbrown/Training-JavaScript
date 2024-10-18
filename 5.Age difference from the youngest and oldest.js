@@ -9,6 +9,7 @@
   ];
    Output: [13, 67, 54]
 */
+
 const input = [
   { name: "John", age: 13},
   { name: "Mark", age: 56},
@@ -20,8 +21,17 @@ const valueField = (inputs) => {
   let result=[];
   let valueField = inputs.map(input => input['age']);
   let minValue = Math.min.apply(null, valueField);
-  let maxValue = Math.max.apply(null, valueField)
+  let maxValue = Math.max.apply(null, valueField);
   result.push(minValue, maxValue, maxValue-minValue);
   return result;
 }
 console.log(valueField(input));
+//method2
+// const ageEstimation = (inputs) =>{
+//   let result = [];
+//   let minVal = inputs.map(input => input['age']).reduce((total, value)=>Math.min(total, value));
+//   let maxVal = inputs.map(input => input['age']).reduce((total, value)=>Math.max(total, value));
+//   result.push(minVal, maxVal, maxVal - minVal)
+//   return result
+// }
+// console.log(ageEstimation(input))
