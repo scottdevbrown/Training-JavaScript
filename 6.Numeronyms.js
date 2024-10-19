@@ -9,34 +9,22 @@ There won't be any punctuation in the sentence. g2d l2k e6e
    Output: "E3y d7r l3s to mix k8s and j8t"
    
 */
-
 const srcSentence = "Every developer likes to mix kubernetes and javascript"
-// srcSentence.lastIndexOf()
-//  const howManyLetters = (phrse) => {
-//   //counter
-//   let result = 0
 
-//   for(const index in phrse){
-//     result  = Number(index)+1
-//   }
-//   return result
-//  }
- let result =""
- let result_word
-words = srcSentence.split(' ')
-
-for(let word of words){
-  let wordLength = word.length
-  if(wordLength > 4){
-    let firstChar = word[0]
-    let lastChar = word[wordLength - 1]
-    result_word = firstChar + lastChar
+function abbrevWord(word) {
+  wordLength = word.length
+  if(wordLength < 4){
+    return word
   }
   else{
-    result_word = word
+    return word[0] + (wordLength - 2) + word[wordLength-1]
   }
-  result += result_word
 }
 
-// console.log(srcSentence.lastIndexOf(" "))
-console.log(srcSentence.length)
+ 
+const abbrevSentence = (sentence) =>{
+  return sentence.split(' ').map(word => abbrevWord(word)).join(' ')
+
+}
+
+console.log(abbrevSentence(srcSentence))
