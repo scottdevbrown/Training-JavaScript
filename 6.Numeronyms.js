@@ -11,20 +11,18 @@ There won't be any punctuation in the sentence. g2d l2k e6e
 */
 const srcSentence = "Every developer likes to mix kubernetes and javascript"
 
-function abbrevWord(word) {
+function abbreviateWord(word) {
   wordLength = word.length
   if(wordLength < 4){
     return word
   }
   else{
-    return word[0] + (wordLength - 2) + word[wordLength-1]
+    return word[0] + (wordLength - 2) + word[wordLength - 1]
   }
 }
 
- 
-const abbrevSentence = (sentence) =>{
-  return sentence.split(' ').map(word => abbrevWord(word)).join(' ')
-
+const abbreviateSentence = (sentence) =>{
+  return sentence.split(' ').map(word => abbreviateWord(word)).join(' ')
 }
 
-console.log(abbrevSentence(srcSentence))
+console.log(abbreviateSentence(srcSentence))
