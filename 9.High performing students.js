@@ -20,7 +20,13 @@ students = [
   ];
   
   function averageArray(array) {
-    return array.reduce((pre, curr) => pre + curr) / array.length
+    if (!array.lengh) {
+      return array.reduce((pre, curr) => pre + curr) / array.length 
+    } else {
+      return 0
+    }
+
+    
   }
 
   findHighStudent = (students, benchmark) => {
@@ -33,4 +39,4 @@ students = [
     return averageStudents.filter(student => (student.average > benchmark))
   }
 
-  console.log(findHighStudent(students))
+  console.log(findHighStudent(students, 90))
