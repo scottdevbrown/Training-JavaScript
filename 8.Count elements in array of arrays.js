@@ -9,3 +9,19 @@ The result is an object whose property names are the values from the arrays and 
 
    Output:  { a: 1, b: 1, c: 2, d: 2, f: 2, g: 1}
   */
+  const inputArray = [
+    ["a", "b", "c"],
+    ["c", "d", "f"],
+    ["d", "f", "g"],
+ ];
+
+ calculateOccurrance = (inputArray) => {
+  result = {}
+  //convert 2D to 1D array and get occurrance
+  inputArray.flat().forEach(element => {
+    result[element] = (result[element] || 0) + 1
+    }
+  )
+  return result
+ }
+ console.log(calculateOccurrance(inputArray))
