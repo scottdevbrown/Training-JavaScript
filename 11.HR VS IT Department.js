@@ -17,3 +17,36 @@ of objects containing only the departments that have an average salary above 650
   { department: 'HR', average: 71666 }
  ]
 */
+
+
+const products = [
+  
+ ];
+
+const avearageFilter = (products) => {
+  let salaryArrayByCategory = [];
+  let averageValueArrayByCategory = [];
+  products.map(product => {
+    if (salaryArrayByCategory[product.department]) 
+      salaryArrayByCategory[product.department].push(product.salary);
+    else salaryArrayByCategory[product.department] = [product.salary];
+  })
+
+  let categoryArray = Object.keys(salaryArrayByCategory) // return key words
+
+  categoryArray.map(departmentName => {
+    let avergageByCategory = { department: '', average: 0 };
+    if (salaryArrayByCategory[departmentName].length == 0) {
+      console.log('Warning: There exists no products');
+      return [];
+    }
+
+    avergageByCategory.average = Math.floor(salaryArrayByCategory[departmentName].reduce((sum, value) => sum + value)/salaryArrayByCategory[departmentName].length);
+    avergageByCategory.department = departmentName;
+    averageValueArrayByCategory.push(avergageByCategory);
+  })
+
+  return averageValueArrayByCategory.filter(department => department.average > 65000);
+}
+
+console.log(avearageFilter(products));
