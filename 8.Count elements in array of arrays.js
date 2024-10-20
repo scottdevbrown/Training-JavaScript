@@ -18,7 +18,7 @@ The result is an object whose property names are the values from the arrays and 
  calculateOccurrance = (inputArray) => {
   result = {}
   //convert 2D to 1D array and get occurrance
-  inputArray.flat().forEach(element => {
+  inputArray.flat().map(element => {
     result[element] = (result[element] || 0) + 1
     }
   )
