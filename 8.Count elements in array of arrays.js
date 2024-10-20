@@ -1,5 +1,5 @@
-/* Count the occurrences of distinct letters in the given 2D array. The given input is an array, the letters of which are arrays of strings. 
-The countLetter is an object whose property names are the values from the arrays and their value is the number of their occurrences.
+/* Count the occurrences of distinct elements in the given 2D array. The given twoOrderArray is an array, the elements of which are arrays of strings. 
+The result is an object whose property names are the values from the arrays and their value is the number of their occurrences.
   Sample I/O:
    Input:  const input = [
                 ["a", "b", "c"],

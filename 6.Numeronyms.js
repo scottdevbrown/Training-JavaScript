@@ -3,22 +3,18 @@ You get the Dev numeronyms by taking the first and the last letter and counting 
 Words that have less than 4 letters aren't abbreviated, because that would just be odd. 
 The input is a sentence, and you should abbreviate every word that is 4 letters long or longer. 
 There won't be any punctuation in the sentence. g2d l2k e6e
-
   Sample I/O:
    Input:  "Every developer likes to mix kubernetes and javascript"
    Output: "E3y d7r l3s to mix k8s and j8t"
    
 */
-const input = "Every developer likes to mix kubernetes and javascript"
-const abbrStr = (input) => {
-   return input.split(' ').map(unit => unit).filter(str => str.length>4)
-  // let strs = [
-  //   "sdfdsf",
-  //   "sdfdsf",
-  //   "sdfdsf",
-  // ]
-  return strs.filter(str, str.length);
-  //  return input.split(' ').map(unit => unit);
-
+const input = "Every developer likes to mix kubernetes and javascript";
+const abbrivateSentence = (input) => {
+  return input.split(' ').map(word => {
+      if (word.length < 4) {
+          return word;
+      }
+      return `${word[0]}${word[word.length - 1]}${word.length - 2}`;
+  }).join(' ');
 }
-console.log(abbrStr(input))
+console.log(abbrivateSentence(input));
