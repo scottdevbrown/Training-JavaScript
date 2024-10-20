@@ -16,3 +16,26 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000]:
 each element of array A is an integer within the range [1..1,000,000]
 */
+
+
+const numberArray = [2, 3, 3, 12, 2, 2, 1]
+// function compare(num1, num2) {
+//     return num1 - num2;
+//    }
+   
+const solution = (numberArray) => {
+    sortArray = numberArray.sort((a, b) => a - b)
+    sortArray.reduce((prev, curr) => {
+        prev = curr
+    })
+    return sortArray
+}
+
+result =[]
+   
+numberArray.reduce((a,b) =>{
+    result.push(a)
+    a=b
+    
+})
+console.log(result)

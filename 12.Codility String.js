@@ -34,30 +34,29 @@ N is an integer within the range [1..40,000]; string S contains only letters 'a'
 */
 
 
-const string = "bbbbb"
+const string = "bbabbb"
 const character = "a"
 
 const findNumberOfCharacter = (string, character) => {
-    let number = 0
+    let count = 0
     let indexArray = []
     let index = 0
-    while (string.indexOf(character, index) + 1) {
-        index = string.indexOf(character, index)
+    while ((index = string.indexOf(character, index)) + 1) {   
         indexArray.push(index)
         index++
-        number++
+        count++
     } 
     
     //the case that string cannot be splited by 3
-    if (number % 3) {
+    if (count % 3) {
         return 0
     }
 
-    if (!number) {
+    if (!count) {
         //the case that string don't contains character
         totalNum = (string.length - 2) * (string.length - 1) / 2
     } else {
-        eachNum = number / 3
+        eachNum = count / 3
         totalNum = (indexArray[eachNum] - indexArray[eachNum - 1]) * (indexArray[2 * eachNum] - indexArray[2 * eachNum - 1])
     }
     
