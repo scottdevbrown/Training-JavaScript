@@ -11,3 +11,26 @@ containing only the students who have an average score above 90.
 
    Output:  [ { name: 'Jack', average: 100 }  ]
 */
+
+students = [
+  { name: "Alice", scores: [90, 85, 92] },
+  { name: "Bob", scores: [75, 80, 85] },
+  { name: "Charlie", scores: [90, 95, 85] },
+  { name: "Jack", scores: [100, 100, 100] }
+  ];
+  
+  function averageArray(array) {
+    return array.reduce((pre, curr) => pre + curr) / array.length
+  }
+
+  findHighStudent = (students, benchmark) => {
+    averageStudents = students.map(student => {
+        averageScore = {}
+        averageScore["name"] = student.name
+        averageScore["average"] = averageArray(student.scores)
+        return averageScore        
+      })
+    return averageStudents.filter(student => (student.average > benchmark))
+  }
+
+  console.log(findHighStudent(students))
