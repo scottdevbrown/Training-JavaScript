@@ -16,28 +16,25 @@ N is an integer within the range [1..40,000]; string S contains only letters 'a'
 */
 const input = 'abagbab'
 
+//formula induced [1,i][i+1,j][j+1,n] i:fix-> count of [i+1,j]:n-1-(i+1)+1->n-i-1
 const  strSplit = (input) => {
-
     let result = [];
     let strCount = input.split('').filter( letter => letter == 'a' ).length;
+    
+    if(strCount==0) {
+        return (input.length - 1) * (input.length - 2) / 2;
+    }
 
     if(strCount % 3 != 0) {
         return 0
     } else {
-        if( strCount == 0) {
-            return (input.length - 1) * (input.length - 2) / 2; //formula induced
-        } else {
-            result = input.split('').reduce((total, letter) => ({
+        result = input.split('').reduce((total, letter) => ({
+            index: total['index'] + (letter == 'a' ? 1 : 0),
+            count1: total['count1'] + (total['index'] == strCount / 3 ? 1 : 0),
+            count2: total['count2'] + (total['index'] == strCount *2 / 3 ? 1 : 0)
+        }), { index: 0, count1: 0, count2: 0 })
 
-                index1: total['index1'] + (letter == 'a' ? 1 : 0),
-                index2: total['index2'] + (total['index1'] == strCount / 3 ? 1 : 0),
-                index3: total['index3'] + (total['index1'] == strCount *2 / 3 ? 1 : 0)
-
-            }), { index1: 0, index2: 0, index3: 0 })
-
-            return result['index2'] * result['index3'];
-
-        }
+        return result['count1'] * result['count2'];
     }
 }
 
