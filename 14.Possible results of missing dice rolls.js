@@ -16,3 +16,31 @@ N and F are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..6]. 
 M is an integer within the range [1..6].
 */
+
+const A = [3, 2, 4, 3];
+const F = 5;
+const M = 4;
+
+let fScore = Math.round((A.length + F) * M - A.reduce((total, value) => total + value))
+
+const solution = (F, fScore, scoreSigma, lastArray, resultArrays) => {
+    if (F == 0 && scoreSigma == fScore) {
+        resultArrays.push(lastArray.slice());
+        return;
+    }
+
+    if (F == 0 && scoreSigma != fScore) {
+        return;
+    }
+
+    for (let diceValue = 1; diceValue <= 6; diceValue++) {
+        lastArray.push(diceValue);
+        solution(F - 1, fScore, scoreSigma + diceValue, lastArray, resultArrays);
+        lastArray.pop();
+    }
+
+    return resultArrays;
+
+  }
+  
+  console.log(solution(F, fScore, lastScore = 0, lastArray = [], resultArrays = []));
