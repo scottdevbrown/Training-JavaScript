@@ -13,3 +13,40 @@ Write an efficient algorithm for the following assumptions:
 N and M are integers within the range [1..100,000];
 each element of arrays A and B is an integer within the range [1..6]
 */
+
+
+//A = [5], B = [1, 1, 6]
+//A = [2, 3, 1, 1, 2], B = [5, 4, 6]
+//A = [1, 2, 3, 4, 3, 2, 1], B = [6]
+A = [5, 4, 1, 2, 6, 5], B = [2]
+
+solution = (A, B) => {
+    sumA = A.reduce((a, b) => a + b)
+    lengthA = A.length
+    sumB = B.reduce((a, b) => a + b)
+    lengthB = B.length
+
+    if (sumA == sumB) {
+        return 0
+    }
+
+    delta = Math.abs(sumA - sumB) 
+
+    X = (sumA > sumB) ? A : B
+    Y = (sumA < sumB) ? A : B  
+    deltaX = X.map(a => a - 1)
+    deltaY = Y.map(b => 6 - b)
+    totalDeltaArray = deltaX.concat(deltaY).sort((a, b) => a - b).reverse()
+    count = 0
+    for (let index = 0; index < totalDeltaArray.length; index++) {
+        delta -= totalDeltaArray[index]
+        count++
+        if (delta <= 0) {
+            return count
+        }
+    }
+
+    return -1
+}
+
+console.log(solution(A, B))
