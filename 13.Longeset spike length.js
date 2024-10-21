@@ -16,3 +16,20 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000]:
 each element of array A is an integer within the range [1..1,000,000]
 */
+input = [2, 3, 3, 2, 2, 2, 1];
+
+const solution = (input) => {
+    let arryLength = input.length;
+
+    if(arryLength <= 2) return arryLength;
+
+    let count = 0;
+    let temp_str = input.sort((a,b)=>(b-a));
+    count = temp_str.filter((element, index) => input[index] == input[index + 2]).length;
+
+    if(temp_str[0] == temp_str[1]) count ++ ;//If the biggist two values exist count increase. 
+
+    return arryLength - count;
+}
+
+console.log(solution(input));
