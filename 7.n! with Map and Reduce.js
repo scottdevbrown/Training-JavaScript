@@ -4,3 +4,14 @@ The factorial of a natural number n is the product of the positive integers less
    Input:  6
    Output: 720
 */
+function factorial(n) {
+
+  if (n < 0) return undefined; 
+  
+  const numbers = new Array(n).fill(0).map((_, i) => i + 1);
+  
+  return numbers.reduce((total, value) => total * value, 1);
+
+}
+
+console.log(factorial(6)); // Outputs: 720
