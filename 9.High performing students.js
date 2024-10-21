@@ -11,3 +11,22 @@ containing only the students who have an average score above 90.
 
    Output:  [ { name: 'Jack', average: 100 }  ]
 */
+   students = [
+  { name: "Alice", scores: [90, 85, 92] },
+  { name: "Bob", scores: [75, 80, 85] },
+  { name: "Charlie", scores: [90, 95, 85] },
+  { name: "Jack", scores: [100, 100, 100] }
+  ];
+  const averageFilter = (students) => {
+    let averageScore = [];
+    students.map(eachStudent => {
+      let studentOverStandard = {name : '', average: 0}
+      studentOverStandard['name'] = eachStudent['name'];
+      let average = eachStudent['scores'].reduce((total, score) => total + score)/3;
+      studentOverStandard['average'] = average;
+      averageScore.push(studentOverStandard);
+    })
+    let result = averageScore.filter(student =>  student['average'] > 90 );
+    return result;
+  }
+  console.log(averageFilter(students))
