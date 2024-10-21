@@ -9,3 +9,16 @@ There won't be any punctuation in the sentence. g2d l2k e6e
    Output: "E3y d7r l3s to mix k8s and j8t"
    
 */
+const input = "Every developer likes to mix kubernetes and javascript"
+const abbrStr = (input) => {
+   return input.split(' ').map(unit => unit).filter(str => str.length>4)
+  // let strs = [
+  //   "sdfdsf",
+  //   "sdfdsf",
+  //   "sdfdsf",
+  // ]
+  return strs.filter(str, str.length);
+  //  return input.split(' ').map(unit => unit);
+
+}
+console.log(abbrStr(input))

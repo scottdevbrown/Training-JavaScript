@@ -19,7 +19,6 @@ return an array of objects containing only the categories that have an average p
   ]
 */
 
-
 const products = [
   { name: "Product 1", price: 20, category: "Electronics" },
   { name: "Product 2", price: 30, category: "Clothes" },
