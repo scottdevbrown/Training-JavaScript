@@ -18,6 +18,8 @@ return an array of objects containing only the categories that have an average p
   { category: 'Electronics', average: 55 }
   ]
 */
+
+
 const products = [
   { name: "Product 1", price: 20, category: "Electronics" },
   { name: "Product 2", price: 30, category: "Clothes" },
@@ -28,6 +30,7 @@ const products = [
   { name: "Product 7", price: 80, category: "Clothes" },
   { name: "Product 8", price: 90, category: "Electronics" },
   ];
+
 const avearageFilter = (products) => {
   let priceArrayByCategory = [];
   let averageValueArrayByCategory = [];
@@ -45,6 +48,7 @@ const avearageFilter = (products) => {
   })
   return averageValueArrayByCategory.filter(category => category.average > 50);
 }
+
 console.log(avearageFilter(products));
 
 
