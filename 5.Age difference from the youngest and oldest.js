@@ -9,6 +9,7 @@
   ];
    Output: [13, 67, 54]
 */
+
 const input = [
   { name: "John", age: 13},
   { name: "Mark", age: 56},
@@ -16,6 +17,7 @@ const input = [
   { name: "Nate", age: 67},
   { name: "Jennifer", age: 65}
 ];
+
 const valueField = (inputs) =>{
   let result = [];
   ageArray = inputs.map(input => input['age']).sort()
@@ -25,5 +27,6 @@ const valueField = (inputs) =>{
   result.push(minValue, maxValue, minusValue)
   return result;
 }
+
 console.log(valueField(input))
 // map(input  => input['age']).sort((a,b) => a - b)
