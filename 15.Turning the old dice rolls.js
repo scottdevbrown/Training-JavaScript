@@ -36,7 +36,7 @@ solution = (A, B) => {
     Y = (sumA < sumB) ? A : B  
     deltaX = X.map(a => a - 1)
     deltaY = Y.map(b => 6 - b)
-    totalDeltaArray = deltaX.concat(deltaY).sort((a, b) => a - b).reverse()
+    totalDeltaArray = deltaX.concat(deltaY).sort((a, b) => b - a)
     count = 0
     for (let index = 0; index < totalDeltaArray.length; index++) {
         delta -= totalDeltaArray[index]
