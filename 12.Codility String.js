@@ -14,3 +14,31 @@ Write an efficient algorithm for the following assumptions:
 
 N is an integer within the range [1..40,000]; string S contains only letters 'a' and 'b'.
 */
+const input = 'abagbab'
+
+const  strSplit = (input) => {
+
+    let result = [];
+    let strCount = input.split('').filter( letter => letter == 'a' ).length;
+
+    if(strCount % 3 != 0) {
+        return 0
+    } else {
+        if( strCount == 0) {
+            return (input.length - 1) * (input.length - 2) / 2; //formula induced
+        } else {
+            result = input.split('').reduce((total, letter) => ({
+
+                index1: total['index1'] + (letter == 'a' ? 1 : 0),
+                index2: total['index2'] + (total['index1'] == strCount / 3 ? 1 : 0),
+                index3: total['index3'] + (total['index1'] == strCount *2 / 3 ? 1 : 0)
+
+            }), { index1: 0, index2: 0, index3: 0 })
+
+            return result['index2'] * result['index3'];
+
+        }
+    }
+}
+
+console.log(strSplit(input));
