@@ -45,3 +45,55 @@ const solution = (numberArray) => {
 console.log(solution(numberArray))
 
 
+
+
+const numberArray = [2, 3, 3, 2, 2, 2, 1]
+
+const solution = (numberArray) => {
+    sortArray = numberArray.sort((a, b) => a - b)
+    count = 1
+    repeat = 0
+    sortArray.reduce((prev, curr) => {        
+        if ((prev - curr) < 0) {
+            count++
+            repeat = 0
+        } else {
+            if(!repeat) {
+                count++
+            }
+            repeat++                        
+        }
+        return curr        
+    })
+    if (sortArray[sortArray.length - 1] === sortArray[sortArray.length - 2]) {
+        count--
+    }
+    return count
+}
+
+console.log(solution(numberArray))
+
+
+
+
+const numberArray = [2, 3, 3, 12, 2, 2, 1]
+// function compare(num1, num2) {
+//     return num1 - num2;
+//    }
+   
+const solution = (numberArray) => {
+    sortArray = numberArray.sort((a, b) => a - b)
+    sortArray.reduce((prev, curr) => {
+        prev = curr
+    })
+    return sortArray
+}
+
+result =[]
+   
+numberArray.reduce((a,b) =>{
+    result.push(a)
+    a=b
+    
+})
+console.log(result)
