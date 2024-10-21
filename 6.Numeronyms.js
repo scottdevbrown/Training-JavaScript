@@ -9,3 +9,21 @@ There won't be any punctuation in the sentence. g2d l2k e6e
    Output: "E3y d7r l3s to mix k8s and j8t"
    
 */
+
+
+const srcSentence = "Every developer likes to mix kubernetes and javascript"
+
+function abbreviateWord(word) {
+  wordLength = word.length
+  if (wordLength < 4) {
+    return word
+  } else {
+    return word[0] + (wordLength - 2) + word[wordLength - 1]
+  }
+}
+
+const abbreviateSentence = (sentence) => {
+  return sentence.split(' ').map(word => abbreviateWord(word)).join(' ')
+}
+
+console.log(abbreviateSentence(srcSentence))

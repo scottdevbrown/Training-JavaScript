@@ -3,3 +3,10 @@
    Input:  "George Raymond Richard Martin";
    Output: "GRRM"
 */
+const pharse = "George Raymond Richard Martin"
+
+const getNameInitial = (pharse) =>{
+   return pharse.split(' ').map(word => word[0]).join("")
+}
+
+console.log(getNameInitial(pharse))
