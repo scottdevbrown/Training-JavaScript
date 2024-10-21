@@ -9,16 +9,16 @@ The countLetter is an object whose property names are the values from the arrays
 
    Output:  { a: 1, b: 1, c: 2, d: 2, f: 2, g: 1}
   */
-   const input = [
+ const input = [
     ["a", "b", "c"],
     ["c", "d", "f"],
     ["d", "f", "g"],
  ];
 
- calculateOccurrance = (input) => {
+ countLetterFunction = (input) => {
 
   countLetter = {}
-  //convert 2D to 1D array and get occurrance
+
   input.flat().map(letter => {
     countLetter[letter] = (countLetter[letter] || 0) + 1
     }
@@ -28,4 +28,4 @@ The countLetter is an object whose property names are the values from the arrays
 
  }
 
- console.log(calculateOccurrance(input))
+ console.log(countLetterFunction(input))
