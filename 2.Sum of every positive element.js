@@ -3,3 +3,8 @@
    Input:  [1, -4, 12, 0, -3, 29, -150]
    Output: 42
 */
+const input = [1, -4, 12, 0, -3, 29, -150]
+const filterSum=(inputs) => {
+  return inputs.filter(input => input > 0).reduce((total, value) => total + value);
+}
+console.log(filterSum(input));
