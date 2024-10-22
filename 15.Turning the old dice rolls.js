@@ -13,29 +13,36 @@ Write an efficient algorithm for the following assumptions:
 N and M are integers within the range [1..100,000];
 each element of arrays A and B is an integer within the range [1..6]
 */
+
+
 const inputA = [2, 3, 1, 1, 2];
 const inputB = [5, 4, 6];
 
-const minimumModify = (inputA, inputB) =>{
+const minimumModify = (inputA, inputB) => {
     let differenceArray = [];
     let differenceValue = inputA.reduce((total, value) => total + value) - inputB.reduce((total, value) => total + value);
-    if(differenceValue == 0) return 0;
-    if((inputA.length > inputB.length * 6) && (inputA.length * 6 < inputB.length)){
+    
+    if (differenceValue == 0) return 0;
+    
+    if ((inputA.length > inputB.length * 6) && (inputA.length * 6 < inputB.length))
         return -1
+    
+    if (differenceValue > 0) {
+        differenceArray = [...inputA.map(differ => differ - 1), ...inputB.map(differ => 6 - differ)];
     } else {
-        if(differenceValue > 0) {
-            differenceArray = [...inputA.map(differ => differ - 1), ...inputB.map(differ => 6 - differ)];
-        } else {
-            differenceArray = [...inputA.map(differ => 6 - differ), ...inputB.map(differ => differ -1)];
-        }
-        differenceArray.sort((a, b) => b - a);
-        let threshold = 0;
-        let i = 0;
-        while(Math.abs(differenceValue) > threshold){
-            threshold += differenceArray[i]
-            i++;
-        }
-        return i;
+        differenceArray = [...inputA.map(differ => 6 - differ), ...inputB.map(differ => differ -1)];
     }
+    
+    differenceArray.sort((a, b) => b - a);
+    let threshold = 0;
+    let i = 0;
+    
+    while (Math.abs(differenceValue) > threshold) {
+        threshold += differenceArray[i]
+        i++;
+    }
+
+    return i;
 }
+
 console.log(minimumModify(inputA, inputB))
