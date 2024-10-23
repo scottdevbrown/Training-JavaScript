@@ -4,10 +4,3 @@ The factorial of a natural number n is the product of the positive integers less
    Input:  6
    Output: 720
 */
-const input = 6;
-const factorial = (integer) => {
-  if (integer < 1) return;
-  if (integer == 1) return 1;
-  return integer * factorial(integer - 1);
-}
-console.log(factorial(input));

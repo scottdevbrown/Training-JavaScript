@@ -8,13 +8,3 @@ There won't be any punctuation in the sentence. g2d l2k e6e
    Output: "E3y d7r l3s to mix k8s and j8t"
    
 */
-const input = "Every developer likes to mix kubernetes and javascript";
-const abbrivateSentence = (input) => {
-  return input.split(' ').map(word => {
-      if (word.length < 4) {
-          return word;
-      }
-      return `${word[0]}${word[word.length - 1]}${word.length - 2}`;
-  }).join(' ');
-}
-console.log(abbrivateSentence(input));

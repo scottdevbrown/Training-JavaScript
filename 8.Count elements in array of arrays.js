@@ -9,22 +9,3 @@ The result is an object whose property names are the values from the arrays and 
 
    Output:  { a: 1, b: 1, c: 2, d: 2, f: 2, g: 1}
   */
-   const twoOrderArray = [
-    ["a", "b", "c"],
-    ["c", "d", "f"],
-    ["d", "f", "g"],
- ];
-   const letterCount = (twoOrderArray) => {
-    const result = {}; 
-    twoOrderArray.forEach(oneOrderArray => {
-        oneOrderArray.forEach(oneLetter => {
-            if (result[oneLetter]) {
-                result[oneLetter] += 1;
-            } else {
-                result[oneLetter] = 1;
-            }
-        });
-    });
-    return result;
-   }
-   console.log(letterCount(twoOrderArray));
